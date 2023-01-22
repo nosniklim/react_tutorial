@@ -5,6 +5,13 @@ import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
 class Square extends React.Component {
+  constructor(props) {
+    super(props);  // サブクラスのコンストラクタを定義する際は常にsuperを呼ぶ必要がある
+    this.state = {
+      value: null,
+    };
+  }
+
   render() {
     return (
       <button className="square" onClick={() => console.log('click')}>
