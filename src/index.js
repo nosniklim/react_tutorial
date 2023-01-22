@@ -33,7 +33,12 @@ class Board extends React.Component {
   }
 
   renderSquare(i) {
-    return <Square value={this.state.squares[i]} onClick={() => this.handleClick(i)} />;
+    return (
+      <Square
+        value={this.state.squares[i]}
+        onClick={() => this.handleClick(i)} // イベントを処理するメソッド名は handle[Event] とする
+      />
+    );
   }
 
   render() {
