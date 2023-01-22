@@ -5,28 +5,39 @@ import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
 class Square extends React.Component {
-  constructor(props) {
-    super(props);  // サブクラスのコンストラクタを定義する際は常にsuperを呼ぶ必要がある
-    this.state = {
-      value: null,
-    };
-  }
-
   render() {
     return (
       <button
         className="square"
-        onClick={() => this.setState({value: 'X'})}
+        onClick={() => this.props.onClick()} // イベントを表す props の名前は on[Event] とする
       >
-        {this.state.value}
+        {this.props.value}
       </button>
     );
   }
 }
 
 class Board extends React.Component {
+  constructor(props) {
+    super(props);  // サブクラスのコンストラクタを定義する際は常にsuperを呼ぶ必要がある
+    this.state = {
+      squares: Array(9).fill(null),
+    };
+  }
+
+  handleClick(i) {
+    const squares = this.state.squares.slice(); // 変更検知しやすくするため squares 配列のコピーを作成（イミュータビリティ）
+    squares[i] = 'X';
+    this.setState({squares: squares});
+  }
+
   renderSquare(i) {
-    return <Square value={i} />;
+    return (
+      <Square
+        value={this.state.squares[i]}
+        onClick={() => this.handleClick(i)} // イベントを処理するメソッド名は handle[Event] とする
+      />
+    );
   }
 
   render() {
