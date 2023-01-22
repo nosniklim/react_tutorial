@@ -26,7 +26,7 @@ class Square extends React.Component {
 
 class Board extends React.Component {
   constructor(props) {
-    super(props);
+    super(props);  // サブクラスのコンストラクタを定義する際は常にsuperを呼ぶ必要がある
     this.state = {
       squares: Array(9).fill(null),
     };
