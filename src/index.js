@@ -4,17 +4,13 @@ import './index.css';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
-class Square extends React.Component {
-  render() {
-    return (
-      <button
-        className="square"
-        onClick={() => this.props.onClick()} // イベントを表す props の名前は on[Event] とする
-      >
-        {this.props.value}
-      </button>
-    );
-  }
+// render メソッドのみを有し自身の state を持たない場合は関数コンポーネントとして定義できる
+function Square(props) {
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
 }
 
 class Board extends React.Component {
