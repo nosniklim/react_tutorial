@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
 // render メソッドのみを有し自身の state を持たない場合は関数コンポーネントとして定義できる
