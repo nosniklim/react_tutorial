@@ -24,6 +24,9 @@ class Board extends React.Component {
 
   handleClick(i) {
     const squares = this.state.squares.slice(); // 変更検知しやすくするため squares 配列のコピーを作成（イミュータビリティ）
+    if (calculateWinner(squares) || squares[i]) {
+      return;
+    }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
       squares: squares,
