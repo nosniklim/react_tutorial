@@ -81,8 +81,9 @@ class Game extends React.Component {
       const desc = move ?
         'Go to move #' + move :
         'Go to game start';
+      // リストが再レンダーされる場合は、変更を検知するため各項目にkeyを持たせる必要がある
       return (
-        <li>
+        <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
